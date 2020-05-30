@@ -18,6 +18,15 @@ import (
 func TestClient_doRequest(t *testing.T) {
 	baseRequest, _ := http.NewRequest("GET", "/gh/", nil)
 
+	// Allow throwing away of context cancellation functions, such as when we want to force
+	// them to naturally cancel ala WithTimeout
+	var cancel context.CancelFunc
+	defer func() {
+		if cancel != nil {
+			cancel()
+		}
+	}()
+
 	type args struct {
 		request  *http.Request
 		response interface{}
@@ -70,8 +79,8 @@ func TestClient_doRequest(t *testing.T) {
 		{
 			name: "Timeout",
 			args: args{
-				request: baseRequest.Clone(func() context.Context {
-					ctx, _ := context.WithTimeout(context.Background(), time.Millisecond*100)
+				request: baseRequest.Clone(func() (ctx context.Context) {
+					ctx, cancel = context.WithTimeout(context.Background(), time.Millisecond*100)
 					return ctx
 				}()),
 				response: &Response{},
