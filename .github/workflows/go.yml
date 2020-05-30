@@ -19,6 +19,12 @@ jobs:
     - name: Get dependencies
       run: go mod download
 
+    - name: Go vet
+      run: go vet
+
+    - name: Go fmt
+      run: go fmt
+
     - name: Test
       run: go test -race -covermode=atomic -coverprofile=coverage.txt ./...
 
