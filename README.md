@@ -44,3 +44,11 @@ if err != nil {
 
 fmt.Println("%#v", repo)
 ```
+
+## Contributing
+
+Issues and Pull Requests are welcome! If you would like to test locally, fork and clone this repository, then run:
+
+```sh
+go test ./...
+```
