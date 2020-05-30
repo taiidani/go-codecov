@@ -1,5 +1,7 @@
 # Codecov
 
+[![codecov](https://codecov.io/gh/taiidani/go-codecov/branch/master/graph/badge.svg)](https://codecov.io/gh/taiidani/go-codecov)
+
 This library is made to access the [Codecov](https://codecov.io/) REST API, allowing programmatic management of the resources exposed through it.
 
 ## Using The Library
