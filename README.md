@@ -1,5 +1,6 @@
 # Codecov
 
+![Go](https://github.com/taiidani/go-codecov/workflows/Go/badge.svg)
 [![codecov](https://codecov.io/gh/taiidani/go-codecov/branch/master/graph/badge.svg)](https://codecov.io/gh/taiidani/go-codecov)
 
 This library is made to access the [Codecov](https://codecov.io/) REST API, allowing programmatic management of the resources exposed through it.
@@ -42,4 +43,12 @@ if err != nil {
 }
 
 fmt.Println("%#v", repo)
+```
+
+## Contributing
+
+Issues and Pull Requests are welcome! If you would like to test locally, fork and clone this repository, then run:
+
+```sh
+go test ./...
 ```
